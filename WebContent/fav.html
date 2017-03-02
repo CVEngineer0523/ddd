@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>添加书签</title>
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/fav.js"></script>
+</head>
+<body onUnload="opener.location.reload()">
+     <h3>搜藏</h3>
+     <table class="add_label" cellspacing="0" cellpadding="0" border="0">
+					<tr>
+						<td >
+							名称：
+						</td>
+						<td >
+							<input type="text" name="flabel" id="flabel" value="百度"/>
+						</td>
+					</tr>
+					<tr>
+						<td >
+							链接：
+						</td>
+						<td >
+							<input type="text" name="furl" id="furl" value="www.baidu.com"/>
+						</td>
+					</tr>
+					<tr>
+						<td >
+							Tag：
+						</td>
+						<td >
+							<input type="text" name="ftags" id="ftags" value="搜索,新闻"/><br/>
+						</td>
+					</tr>
+					<tr>
+						<td >
+						</td>
+						<td >
+							<label style="color:green">可以多个,用","隔开</label>
+						</td>
+					</tr>
+					<tr>
+						<td >
+							描述：
+						</td>
+						<td >
+							<input type="text" name="fdesc" id="fdesc" height="50px" value="百度一下，你就知道"/>
+						</td>
+					</tr>
+				</table>
+				<input type="button" value="取消"  onclick="window.close()"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="提交" onclick="addfavorite()"/>
+</body>
+</html>

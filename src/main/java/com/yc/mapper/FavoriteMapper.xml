@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yc.mapper.FavoriteMapper">
+
+	<select id="selectAllFavorite"  resultType="com.yc.bean.Favorite">
+		select fid,flabel,furl,ftags,fdesc from favorite
+		<trim prefix="where" prefixOverrides="and">
+			<if test="ftags != null ">
+				and ftags like #{ftags}
+			</if>
+		</trim>
+	</select>
+	
+	<select id="insertFavorite"  resultType="com.yc.bean.Favorite">
+		insert into favorite(flabel,furl,ftags,fdesc) values(#{flabel},#{furl},#{ftags},#{fdesc})
+	</select>
+</mapper>  

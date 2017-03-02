@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yc.mapper.TagMapper">
+
+	<select id="tag" parameterType="com.yc.bean.Tag" resultType="com.yc.bean.Tag">
+		select tid,tname,tcount from tag
+	</select>
+	
+	<select id="findTagByName" parameterType="com.yc.bean.Tag" resultType="com.yc.bean.Tag">
+		select tid,tname,tcount from tag
+		<trim prefix="where" prefixOverrides="">
+		     <if test="tname !=null">
+		          tname=#{tname}
+		     </if>
+		</trim>
+	</select>
+	<select id="findTagByTid" parameterType="com.yc.bean.Tag" resultType="com.yc.bean.Tag">
+		select tname from tag
+		<trim prefix="where" prefixOverrides="and">
+		     <if test="tid !=null">
+		          tid=#{tid}
+		     </if>
+		</trim>
+	</select>
+	
+	
+	<update id="updateTagTcount" parameterType="com.yc.bean.Tag">
+		update tag
+		<set>
+			tcount=#{tcount}
+		</set>
+		<where>
+		    <if test="tid!=null">tid=#{tid}</if>
+		</where>
+	</update>
+	
+	<insert id="insertTag" parameterType="com.yc.bean.Tag">
+		insert into tag(tname,tcount) values(#{tname},1)
+	</insert>
+	
+</mapper>  
